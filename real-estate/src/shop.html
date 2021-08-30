@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <title>이더리움 부동산</title>
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <!-- Bootstrap -->
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!--모달 슬라이드 만들기-->
+  <link href="css/main.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -20,39 +23,48 @@
       <![endif]-->
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
   <!-- Bootstrap icons-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-
+  <!-- Google fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
-<body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-            <div class="container px-5">
-                <a class="navbar-brand fw-bold" href="./index.html">Ethereum RealEstate</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="bi-list"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                        <li class="nav-item"><a class="nav-link mgie-lg-3" href="./index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link mgie-lg-3" href="./shop.html">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="./wish.html">Wish</a></li>
-                        <li class="nav-item"><a class="nav-link mgie-lg-3" href="./index.html">About</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+    <div class="container px-5">
+      <a class="navbar-brand fw-bold" href="./index.html">Ethereum RealEstate</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+          <li class="nav-item"><a class="nav-link mgie-lg-3" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link mgie-lg-3" href="./shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link me-lg-3" href="./wish.html">Wish</a></li>
+          <li class="nav-item"><a class="nav-link mgie-lg-3" href="./index.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-
-  <div class="container">
-
+  <div class="notice">
+    <div id="events"></div>
   </div>
-  <div id="events"></div>
+
   <div class="row" id="list">
     <!-- 매물 리스트 -->
-  </div>
   </div>
 
   <div id="template" style="display: none;">
@@ -68,61 +80,103 @@
               <div class="card-body p-4">
                 <div class="text-center">
                   <!-- Product name-->
-
                   <strong>계정</strong>: <span class="id"></span><br />
                   <strong>매물 종류</strong>: <span class="type"></span><br />
                   <strong>면적(m²)</strong>: <span class="area"></span><br />
                   <strong>가격(ETH)</strong>: <span class="price"></span><br /><br />
-                  <button class="btn btn-info btn-buy" type="button" data-toggle="modal" data-target="#buyModal">
-                    매입
+
+                  <button class="btn btn-primary btn-buy rounded-pill  mb-2 mb-lg-0" type="button" data-toggle="modal"
+                    data-bs-toggle="modal" data-target="#buyModal">
+                    <span class="d-flex align-items-center">
+                      <i class="bi-chat-text-fill me-2"></i>
+                      <span class="small">매입</span>
+                    </span>
                   </button>
-                  <button class="btn btn-info btn-buyerInfo" type="button" data-toggle="modal"
-                    data-target="#buyerInfoModal" style="display: none;">
-                    매입자 정보
+
+                  <button class="btn btn-primary btn-buyerInfo rounded-pill  mb-2 mb-lg-0" type="button"
+                    data-toggle="modal" data-bs-toggle="modal" data-target="#buyerInfoModal" style="display: none;">
+                    <span class="d-flex align-items-center">
+                      <i class="bi-chat-text-fill me-2"></i>
+                      <span class="small">매입자 정보</span>
+                    </span>
                   </button>
+                </div>
+              </div>
+              <div class="btn" data-toggle="modal" data-target="#showDetails">
+                <div class="text-center">
+                  <a class="btn btn-white" href="#">자세히보기_깃헙</a>
                 </div>
               </div>
               <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><a class="btn btn-outline-white mt-auto" href="#">View options</a>
-                </div>
-              </div>
-            </div>
+              <div class="modal fade" tabindex="-1" role="dialog" id="buyModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <!--매입버튼-->
+                    <div class="modal-header bg-gradient-primary-to-secondary p-4">
+                      <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">매입</h5>
+                      <button class="btn-close btn-close-white" type="button" data-dismiss="modal"
+                        aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <!--매입모달창-->
+                      <input type="hidden" id="id" />
+                      <input type="hidden" id="price" />
+                      <input type="text" class="form-control" id="name" placeholder="이름" /><br />
+                      <input type="number" class="form-control" id="age" placeholder="나이" />
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                      <button type="button" class="btn btn-primary"
+                        onclick="App.buyRealEstate(); return false;">제출</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+              <!--자세히보기버튼-->
+              <div class="modal fade" tabindex="-1" role="dialog" id="showDetails">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-details">
+                    <div class="modal-header bg-gradient-primary-to-secondary p-9">
+                      <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">매물 자세히보기</h5>
+                      <button class="btn-close btn-close-white" type="button" data-dismiss="modal"
+                        aria-label="Close"></button>
+                    </div>
+                    <div class="swiper mySwiper" style="width: 100%;">
+                      <div class="swiper-wrapper" style="width: 100%;">
+                        왜 안되니.....<br>
+                        whyrano...<br>
+                        <img src="./assets/img/pic1.jpg" width="100%;">
+
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="modal fade" tabindex="-1" role="dialog" id="buyModal">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-gradient-primary-to-secondary p-4">
-          <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">매입</h5>
-          <button class="btn-close btn-close-white" type="button" data-dismiss="modal" aria-label="Close"></button>
-
-        </div>
-        <div class="modal-body">
-          <input type="hidden" id="id" />
-          <input type="hidden" id="price" />
-          <input type="text" class="form-control" id="name" placeholder="이름" /><br />
-          <input type="number" class="form-control" id="age" placeholder="나이" />
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-          <button type="button" class="btn btn-primary" onclick="App.buyRealEstate(); return false;">제출</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+  </div>
 
   <div class="modal fade" tabindex="-1" role="dialog" id="buyerInfoModal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
+        <!--매입완료 후 매입자 정보-->
         <div class="modal-header bg-gradient-primary-to-secondary p-4">
           <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">매입자 정보</h5>
           <button class="btn-close btn-close-white" type="button" data-dismiss="modal" aria-label="Close"></button>
         </div>
+        <img style="width: 100%;" src="">
         <div class="modal-body border-0 p-4">
           <strong>계정주소</strong>: <span id="buyerAddress"></span><br />
           <strong>이름</strong>: <span id="buyerName"></span><br />
@@ -136,6 +190,22 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -144,6 +214,7 @@
   <script src="js/truffle-contract.js"></script>
   <script src="js/app.js"></script>
   <script src="js/utf8.js"></script>
+
 </body>
 
 </html>
