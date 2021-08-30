@@ -6,15 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <title>이더리움 부동산</title>
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <!-- Bootstrap -->
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!--모달 슬라이드 만들기-->
-  <link href="css/main.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -23,7 +20,6 @@
       <![endif]-->
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
   <!-- Bootstrap icons-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
   <!-- Google fonts-->
@@ -34,41 +30,54 @@
     href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
-  <!-- Link Swiper's CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
-<body id="page-top">
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-    <div class="container px-5">
-      <a class="navbar-brand fw-bold" href="./index.html">Ethereum RealEstate</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="bi-list"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-          <li class="nav-item"><a class="nav-link mgie-lg-3" href="./index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link mgie-lg-3" href="./shop.html">Shop</a></li>
-          <li class="nav-item"><a class="nav-link me-lg-3" href="./wish.html">Wish</a></li>
-          <li class="nav-item"><a class="nav-link mgie-lg-3" href="./about.html">About</a></li>
-        </ul>
+<body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+            <div class="container px-5">
+                <a class="navbar-brand fw-bold" href="./index.html">Ethereum RealEstate</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                        <li class="nav-item"><a class="nav-link mgie-lg-3" href="./index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link mgie-lg-3" href="./shop.html">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="./news.html">News</a></li>
+                        <li class="nav-item"><a class="nav-link mgie-lg-3" href="./about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+  <!--Notice 섹션 -->
+  <div class="text-center  px-auto  bg-gradient-primary-to-secondary">
+    <div class="row gx-5 justify-content-center">
+      <div class="h2 fs-1 text-white ">
+        Notice <br />
+      </div>
+      <div class="col-xl-8 text-white">
+        <!--구매 시 실시간 날짜 및 시간 이벤트 발생-->
+        <span id="clock">
+        </span>
+        
+        <!--구매 계정 및 매물 번호 알림 메세지 안내-->
+        <div id="events">
+        </div><br />
       </div>
     </div>
-  </nav>
-
-  <div class="notice">
-    <div id="events"></div>
   </div>
 
+
+  <!-- 매물 리스트 -->
   <div class="row" id="list">
-    <!-- 매물 리스트 -->
+
   </div>
-
+ 
+  <!-- 매입&매입자정보 버튼 -->
   <div id="template" style="display: none;">
-
     <div class="col-sm-6 col-md-4 col-lg-3">
       <div class="panel panel-success panel-realEstate">
         <div class="panel-heading">
@@ -85,93 +94,62 @@
                   <strong>면적(m²)</strong>: <span class="area"></span><br />
                   <strong>가격(ETH)</strong>: <span class="price"></span><br /><br />
 
+                  <!--매입버튼 디자인-->
                   <button class="btn btn-primary btn-buy rounded-pill  mb-2 mb-lg-0" type="button" data-toggle="modal"
                     data-bs-toggle="modal" data-target="#buyModal">
                     <span class="d-flex align-items-center">
-                      <i class="bi-chat-text-fill me-2"></i>
-                      <span class="small">매입</span>
+                      <i class="bi bi-cart4 me-2" aria-hidden="true"></i>
+                      <span class="small">Buy</span>
                     </span>
                   </button>
 
+                  <!--매입자 정보 버튼 디자인-->
                   <button class="btn btn-primary btn-buyerInfo rounded-pill  mb-2 mb-lg-0" type="button"
                     data-toggle="modal" data-bs-toggle="modal" data-target="#buyerInfoModal" style="display: none;">
                     <span class="d-flex align-items-center">
-                      <i class="bi-chat-text-fill me-2"></i>
-                      <span class="small">매입자 정보</span>
+                      <i class="bi bi-person-circle me-2"></i>
+                      <span class="small">Buyer Info</span>
                     </span>
                   </button>
                 </div>
               </div>
-              <div class="btn" data-toggle="modal" data-target="#showDetails">
-                <div class="text-center">
-                  <a class="btn btn-white" href="#">자세히보기</a>
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="modal fade" tabindex="-1" role="dialog" id="buyModal">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <!--매입버튼-->
-                    <div class="modal-header bg-gradient-primary-to-secondary p-4">
-                      <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">매입</h5>
-                      <button class="btn-close btn-close-white" type="button" data-dismiss="modal"
-                        aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <!--매입모달창-->
-                      <input type="hidden" id="id" />
-                      <input type="hidden" id="price" />
-                      <input type="text" class="form-control" id="name" placeholder="이름" /><br />
-                      <input type="number" class="form-control" id="age" placeholder="나이" />
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                      <button type="button" class="btn btn-primary"
-                        onclick="App.buyRealEstate(); return false;">제출</button>
-                    </div>
-                  </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-              </div><!-- /.modal -->
-
-              <!--자세히보기버튼-->
-              <div class="modal fade" tabindex="-1" role="dialog" id="showDetails">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-details">
-                    <div class="modal-header bg-gradient-primary-to-secondary p-9">
-                      <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">매물 자세히보기</h5>
-                      <button class="btn-close btn-close-white" type="button" data-dismiss="modal"
-                        aria-label="Close"></button>
-                    </div>
-                    <div class="swiper mySwiper" style="width: 100%;">
-                      <div class="swiper-wrapper" style="width: 100%;">
-                        왜 안되니.....<br>
-                        whyrano...<br>
-                        <img src="./assets/img/pic1.jpg" width="100%;">
-
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                      </div>
-                    </div>
-                  </div>
-
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  </div>
+  </div> <!--매입&매입자정보 버튼-->
 
+
+  <!--매입버튼 클릭 시 모달창-->
+  <div class="modal fade" tabindex="-1" role="dialog" id="buyModal">
+    <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+          <div class="modal-header bg-gradient-primary-to-secondary p-4">
+            <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">매입</h5>
+            <button class="btn-close btn-close-white" type="button" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!--modal body-->
+        <div class="modal-body">
+          <input type="hidden" id="id" />
+          <input type="hidden" id="price" />
+          <input type="text" class="form-control" id="name" placeholder="이름" /><br />
+          <input type="email" class="form-control" id="email" placeholder="이메일" />
+        </div>
+        <!--modal footer-->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+          <button type="button" class="btn btn-primary" onclick="App.buyRealEstate(); return false;">제출</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+  <!--매입완료 후 매입자 정보 모달창-->
   <div class="modal fade" tabindex="-1" role="dialog" id="buyerInfoModal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <!--매입완료 후 매입자 정보-->
         <div class="modal-header bg-gradient-primary-to-secondary p-4">
           <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">매입자 정보</h5>
           <button class="btn-close btn-close-white" type="button" data-dismiss="modal" aria-label="Close"></button>
@@ -180,7 +158,7 @@
         <div class="modal-body border-0 p-4">
           <strong>계정주소</strong>: <span id="buyerAddress"></span><br />
           <strong>이름</strong>: <span id="buyerName"></span><br />
-          <strong>나이</strong>: <span id="buyerAge"></span><br />
+          <strong>이메일</strong>: <span id="buyerEmail"></span><br />
           <button class="btn-close btn-close-white" type="button" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-footer">
@@ -190,21 +168,20 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        type: "fraction",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
+      <!-- Footer-->
+      <footer class="bg-black text-center py-5">
+          <div class="container px-5">
+              <div class="text-white-50 small">
+                  <div class="mb-2">&copy; Website 2021. All Rights Reserved.</div>
+                  <a href="./about.html">Privacy</a>
+                  <span class="mx-1">&middot;</span>
+                  <a href="./about.html">About</a>
+                  <span class="mx-1">&middot;</span>
+                  <a href="./about.html">FAQ</a>
+              </div>
+          </div>
+      </footer>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
