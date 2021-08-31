@@ -11711,3 +11711,64 @@ section.cnu-bg:before {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
+
+/* offer.html css 테마 적용*/
+
+.main_others ul li {
+  position:relative;
+  float:left;
+  width:33.3333%; 
+  height:500px;
+  color:#fff;
+  overflow:hidden;
+}
+
+.main_others ul li a {
+  display:block;
+  height:100%;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center center;
+}
+
+.main_others ul li a img {transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  opacity: 0.8;;
+}
+
+.main_others ul li a div {
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+  transform:translateY(-50%);
+  -webkit-transform:translateY(-50%);
+}
+
+.main_others ul li strong {
+  display:block;
+  font-size:40px;
+  line-height:40px;
+  margin-bottom:10px;
+}
+
+.main_others ul li p {
+  font-size:16px;
+  line-height:24px;
+  margin-bottom:26px;
+}
+
+.main_others ul li span{
+  display:inline-block;
+  width:130px;
+  height:46px;
+  border:2px solid #fff;
+  border-radius:6px;
+  line-height:42px;
+  box-sizing:border-box;
+}
+
+.main_others ul li a:hover img{
+	transform:scale(1.05);
+	opacity:0.3;
+}

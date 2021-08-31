@@ -6,20 +6,42 @@ App = {
 
   init: function () {
     $.getJSON('../real-estate.json', function (data) {
-      var list = $('#list');
+      var apartment = $('#apartment');
       var template = $('#template');
 
-      for (i = 0; i < data.length; i++) {
+      for (i = 0; i < 4; i++) {
         template.find('img').attr('src', data[i].picture);
         template.find('.id').text(data[i].id);
+        template.find('.address').text(data[i].address);
         template.find('.type').text(data[i].type);
         template.find('.area').text(data[i].area);
         template.find('.price').text(data[i].price);
 
-        list.append(template.html());
+        apartment.append(template.html());
       }
-    })
+      var villa = $('#villa');
+      for (i = 4; i < 8; i++) {
+        template.find('img').attr('src', data[i].picture);
+        template.find('.id').text(data[i].id);
+        template.find('.address').text(data[i].address);
+        template.find('.type').text(data[i].type);
+        template.find('.area').text(data[i].area);
+        template.find('.price').text(data[i].price);
 
+        villa.append(template.html());
+      }
+      var house = $('#house');
+      for (i = 8; i < 12; i++) {
+        template.find('img').attr('src', data[i].picture);
+        template.find('.id').text(data[i].id);
+        template.find('.address').text(data[i].address);
+        template.find('.type').text(data[i].type);
+        template.find('.area').text(data[i].area);
+        template.find('.price').text(data[i].price);
+
+        house.append(template.html());
+      }
+    });
     return App.initWeb3();
   },
 
@@ -48,7 +70,7 @@ App = {
     var id = $('#id').val();
     var price = $('#price').val();
     var name = $('#name').val();
-    var email = $('#email').val();
+    var phone = $('#phone').val();
     /* 콘솔로 데이터 전달 확인
     console.log(id);
     console.log(price);
@@ -66,24 +88,26 @@ App = {
         //컨트랙의 매물구입함수 데이터 넘김
       App.contracts.RealEstate.deployed().then(function(instance) {
         var nameUtf8Encoded = utf8.encode(name); //매입자이름 한글에 대비하여 인코딩시킴
-        return instance.buyRealEstate(id, web3.toHex(nameUtf8Encoded), email, { from: account, value: price }); //value: 매입가를 함수로 보냄
+        return instance.buyRealEstate(id, web3.toHex(nameUtf8Encoded), phone, { from: account, value: price }); //value: 매입가를 함수로 보냄
       }).then(function() {
         //모달 창 필드 empty 리셋시킴
         $('#name').val('');
-        $('#email').val('');  
+        $('#age').val('');  
         $('#buyModal').modal('hide');
       }).catch(function(err) {
         console.log(err.message);
       });
     });
   },
-
+  
   loadRealEstates: function () {
     App.contracts.RealEstate.deployed().then(function(instance) {
       return instance.getAllBuyers.call();
     }).then(function(buyers) {
       //팔린 경우 이미지 변경
       for(i = 0; i < buyers.length; i++) {
+        
+        console.log(buyers.length);
         if(buyers[i] !== '0x0000000000000000000000000000000000000000') { //배열에 빈 주소가 없을 경우(매물이 팔린 경우)
           var imgType = $('.panel-realEstate').eq(i).find('img').attr('src').substr(7); //현재 ui의 템플릿 10개 있음. 판매된 매물의 img이름만 슬라이싱하여 가져옴 (ex. apratement.jpg)
 
@@ -142,12 +166,14 @@ $(function () {
     App.contracts.RealEstate.deployed().then(function(instance) {
       return instance.getBuyerInfo.call(id);
     }).then(function(buyerInfo) {
+
       $(e.currentTarget).find('#buyerAddress').text(buyerInfo[0]); //계정주소
       $(e.currentTarget).find('#buyerName').text(web3.toUtf8(buyerInfo[1])); //매입자 이름
-      $(e.currentTarget).find('#buyerEmail').text(buyerInfo[2]); //매입자 나이
+      $(e.currentTarget).find('#buyerPhone').text("0" + buyerInfo[2]); //매입자 연락처
+
+      
     }).catch(function(err) {
       console.log(err.message);
     })
   });
 });
-

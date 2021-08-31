@@ -155,9 +155,9 @@
       "name": "getAllBuyers",
       "outputs": [
         {
-          "internalType": "address[10]",
+          "internalType": "address[12]",
           "name": "",
-          "type": "address[10]"
+          "type": "address[12]"
         }
       ],
       "payable": false,
@@ -3476,14 +3476,14 @@
                       "scope": 180,
                       "stateVariable": false,
                       "storageLocation": "memory",
-                      "type": "address[10]",
+                      "type": "address[12]",
                       "value": null,
                       "visibility": "internal"
                     },
                     "children": [
                       {
                         "attributes": {
-                          "type": "address[10]"
+                          "type": "address[12]"
                         },
                         "children": [
                           {
@@ -3582,7 +3582,7 @@
     "3": {
       "events": {},
       "links": {},
-      "address": "0xfe87a38B763976F4F30F64D0F366818697AE65F3",
+      "address": "0xCd021eA257cAafb19166deb7858Ed0a710eB3597",
       "transactionHash": "0x17911d4617f825a2e9889e978be5e630ea442f9e77bed8469cc299fb5a7340ad"
     },
     "5778": {

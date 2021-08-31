@@ -43,9 +43,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                        <li class="nav-item"><a class="nav-link mgie-lg-3" href="./index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link mgie-lg-3" href="./index.html#exam">Home</a></li>
+                        <li class="nav-item"><a class="nav-link mgie-lg-3" href="./offer.html">Offer</a></li>
                         <li class="nav-item"><a class="nav-link mgie-lg-3" href="./shop.html">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="./news.html">News</a></li>
                         <li class="nav-item"><a class="nav-link mgie-lg-3" href="./about.html">About</a></li>
                     </ul>
                 </div>
@@ -70,12 +70,25 @@
     </div>
   </div>
 
+  <!--아파트 매물리스트-->
+  <section class="bg-light" id="apartment-section" style="padding-bottom: 0px;">
+    <div class="h2 fs-1">Apartment</div>
+    <div class="row" id="apartment"></div>
+  </section>
+  
+  <!--빌라 매물리스트-->
+  <section class="bg-light" id="villa-section" style="padding-bottom: 0px;">
+    <div class="h2 fs-2">Villa</div>
+    <div class="row" id="villa"></div>
+  </section>
 
-  <!-- 매물 리스트 -->
-  <div class="row" id="list">
+  <!--단독주택 매물리스트-->
+  <section class="bg-light" id="house-section" style="padding-bottom: 0px;">
+    <div class="h2 fs-2">House</div>
+    <div class="row" id="house"></div>
+  </section>
+  
 
-  </div>
- 
   <!-- 매입&매입자정보 버튼 -->
   <div id="template" style="display: none;">
     <div class="col-sm-6 col-md-4 col-lg-3">
@@ -83,14 +96,14 @@
         <div class="panel-heading">
           <div class="col mb-5">
             <div class="card h-100">
-              <!-- Product image-->
+              <!-- 매물 이미지-->
               <img style="width: 100%;" src="">
-              <!-- Product details-->
+              <!-- 매물 정보-->
               <div class="card-body p-4">
                 <div class="text-center">
-                  <!-- Product name-->
-                  <strong>계정</strong>: <span class="id"></span><br />
-                  <strong>매물 종류</strong>: <span class="type"></span><br />
+                  <strong>매물번호</strong>: <span class="id"></span><br />
+                  <strong>매물명</strong>: <span class="type"></span><br />
+                  <strong>주소</strong>: <span class="address"></span><br />
                   <strong>면적(m²)</strong>: <span class="area"></span><br />
                   <strong>가격(ETH)</strong>: <span class="price"></span><br /><br />
 
@@ -118,7 +131,7 @@
         </div>
       </div>
     </div>
-  </div> <!--매입&매입자정보 버튼-->
+  </div> <!--//매입&매입자정보 버튼-->
 
 
   <!--매입버튼 클릭 시 모달창-->
@@ -134,7 +147,7 @@
           <input type="hidden" id="id" />
           <input type="hidden" id="price" />
           <input type="text" class="form-control" id="name" placeholder="이름" /><br />
-          <input type="email" class="form-control" id="email" placeholder="이메일" />
+          <input type="number" class="form-control" id="phone" placeholder="연락처 (ex.01012345678)" min="0" />
         </div>
         <!--modal footer-->
         <div class="modal-footer">
@@ -158,7 +171,7 @@
         <div class="modal-body border-0 p-4">
           <strong>계정주소</strong>: <span id="buyerAddress"></span><br />
           <strong>이름</strong>: <span id="buyerName"></span><br />
-          <strong>이메일</strong>: <span id="buyerEmail"></span><br />
+          <strong>연락처</strong>: <span id="buyerPhone"></span><br />
           <button class="btn-close btn-close-white" type="button" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-footer">
@@ -170,7 +183,7 @@
 
 
       <!-- Footer-->
-      <footer class="bg-black text-center py-5">
+      <footer class="bg-black text-center py-5" id="footer">
           <div class="container px-5">
               <div class="text-white-50 small">
                   <div class="mb-2">&copy; Website 2021. All Rights Reserved.</div>
@@ -183,9 +196,9 @@
           </div>
       </footer>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <!— jQuery (necessary for Bootstrap's JavaScript plugins) —>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!— Include all compiled plugins (below), or include individual files as needed —>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/web3.min.js"></script>
   <script src="js/truffle-contract.js"></script>
