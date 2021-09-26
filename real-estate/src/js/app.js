@@ -107,20 +107,46 @@ App = {
       //팔린 경우 이미지 변경
       for(i = 0; i < buyers.length; i++) {
         
-        console.log(buyers.length);
         if(buyers[i] !== '0x0000000000000000000000000000000000000000') { //배열에 빈 주소가 없을 경우(매물이 팔린 경우)
-          var imgType = $('.panel-realEstate').eq(i).find('img').attr('src').substr(7); //현재 ui의 템플릿 10개 있음. 판매된 매물의 img이름만 슬라이싱하여 가져옴 (ex. apratement.jpg)
+          var imgType = $('.panel-realEstate').eq(i).find('img').attr('src').substr(8,2); //현재 ui의 템플릿 10개 있음. 판매된 매물의 img이름만 슬라이싱하여 가져옴 (ex. apratement.jpg)
 
           switch(imgType) {
-            case 'apartment.jpg':
-              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/apartment_sold.jpg')
+            case '00':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/a00_sold.png')
               break;
-            case 'townhouse.jpg':
-              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/townhouse_sold.jpg')
+            case '01':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/a01_sold.png')
               break;
-            case 'house.jpg':
-              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/house_sold.jpg')
-              break;   
+            case '02':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/a02_sold.png')
+              break;
+            case '03':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/a03_sold.png')
+              break;
+            case '04':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/v04_sold.png')
+              break;     
+            case '05':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/v05_sold.png')
+              break;    
+            case '06':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/v06_sold.png')
+              break;
+            case '07':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/v07_sold.png')
+              break;  
+            case '08':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/h08_sold.png')
+              break;
+            case '09':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/h09_sold.png')
+              break;
+            case '10':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/h10_sold.png')
+              break;
+            case '11':
+              $('.panel-realEstate').eq(i).find('img').attr('src', 'images/h11_sold.png')
+              break;  
           }
         
         $('.panel-realEstate').eq(i).find('.btn-buy').text('Sold Out').attr('disabled', true);
@@ -133,10 +159,12 @@ App = {
   },
 
   listenToEvents: function () {
-    App.contracts.RealEstate.deployed().then(function(instance) {
-      instance.LogBuyRealEstate({}, { fromBlock: 0, toBlock: 'latest'}).watch(function(error, event) {
-        if(!error) {
-          $('#events').append('<p>' + event.args._buyer + ' 계정에서 ' + event.args._id + ' 번 매물을 매입했습니다.' + '</p>');
+    var idx = 0;
+    App.contracts.RealEstate.deployed().then(function (instance) {
+      instance.LogBuyRealEstate({}, { fromBlock: 0, toBlock: 'latest' }).watch(function (error, event) {
+        if (!error) {
+          idx++;
+          $('#events').append('<p>' + '[ No.' + idx + ' ] ' + event.args._buyer + ' 계정에서 ' + event.args._id + ' 번 매물을 매입했습니다.' + '</p>');
         } else {
           console.log(error);
         }

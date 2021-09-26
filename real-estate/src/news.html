@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>RealETHstate</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/blockhouse.png" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <a class="navbar-brand fw-bold" href="./index.html">Real<span style="color:#6610f2">ETH</span>state</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <li class="nav-item"><a class="nav-link mgie-lg-3" href="./index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link mgie-lg-3" href="./offer.html">Offer</a></li>
+                    <li class="nav-item"><a class="nav-link mgie-lg-3" href="./shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link mgie-lg-3" href="./news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link mgie-lg-3" href="./support.html">Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- 맨 처음 헤더, Real Time Price -->
+    <header class="masthead text-center bg-gradient-primary-to-secondary" style="padding-top: 72px;">
+        <div class="container px-5"> 
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xl-8">
+                    <div class="h2 fs-1 text-white"> Real Time Price
+                        <p class="lead fw-light mb-0" style="margin-top: 5px;">실시간으로 변동되는 가격을 한 눈에 확인해보세요</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>  
+
+    
+
+    <!-- 코인의 실시간 가격 확인 api -->
+    <table id="table_ticker" class="table table-hover text-center">
+        <thead id="table_head">
+            <style>
+                thead {
+                    border-top: 1px solid black;
+                }
+            </style>
+            <tr>
+                <td>
+                    <font size="4">코인명</font></br>
+                    <font color="#A4A4A4">(화폐단위)</font>
+                </td>
+                <td>
+                    <font size="4">현재가</font></br>
+                    <font color="#A4A4A4">(KRW)</font>
+                </td>
+                <td>
+                    <font size="4">최고가</font></br>
+                    <font color="#A4A4A4">(KRW)</font>
+                </td>
+                <td>
+                    <font size="4">최저가</font></br>
+                    <font color="#A4A4A4">(KRW)</font>
+                </td>
+                <td>
+                    <font size="4">전일대비</font></br>
+                    <font color="#A4A4A4">(%)</font>
+                </td>
+                <td>
+                    <font size="4">누적거래량</font></br>
+                    <font color="#A4A4A4">(Million)</font>
+                </td>
+                <td>
+                    <font size="4">거래대금</font></br>
+                    <font color="#A4A4A4">(KRW)</font>
+                </td>
+            </tr>
+        </thead>
+        </border>
+        <tbody>
+        </tbody>
+    </table>
+    <script src="./js/news.js"></script>
+
+
+    <!--이더리움 설명-->
+    <section class="bg-light">
+        <div class="container px-8">
+            <div class="row gx-7 align-items-center justify-content-center justify-content-lg-between">
+                <div class="col-12 col-lg-8">
+                    <h2 id="logo-name" class="display-4 lh-1 mb-4">What is Ethereum?</h2>
+                    <p class="ns lead text-muted mb-3">
+                        이더리움(Ethereum)은 블록체인 기술을 기반으로 스마트 계약 기능을 제공합니다.<br>
+                        플랫폼을 통해 누구나 영구적이고 변경할 수 없는 분산 응용 프로그램을 베포할 수 있으며 <br>
+                        사용자가 상호 작용을 할 수 있습니다.<br>
+                        이더리움이 제공하는 이더(Ether)는 암호화폐의 일종으로 화폐 단위는 ETH로 표기합니다.<br>
+                        <br>
+                    </p>
+                </div>
+                <div class="col-sm-8 col-md-4">
+                    <div class="px-9 px-sm-0"><img class="img-fluid"
+                            src="https://download.logo.wine/logo/Ethereum/Ethereum-Portrait-Black-Logo.wine.png"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--각  플랫폼 뉴스 바로가기 링크-->
+    <section class="news-bg">
+        <div class="news-bg-content">
+            <h2 class="text-white container px-5 display-1 mb-4">
+                News for you
+            </h2>
+
+            <h3 class="ns text-white container px-5 fw-light mb-4">
+                <p>실시간 뉴스가 궁금하신가요?</p>
+                <p>각 플랫폼의 부동산 뉴스를 확인해보세요</p>
+                <p>버튼 클릭 시 상세 페이지로 이동합니다</p>
+            </h3>
+            <br><br>
+            <div class="news-btn btn d-flex flex-column flex-lg-row container px-5">
+                <!--네이버-->
+                <a class="d-flex align-items-center">
+                    <a class="me-lg-3 mb-4 mb-lg-0" target="_blank"
+                        href="https://news.naver.com/main/list.naver?mode=LS2D&mid=shm&sid1=101&sid2=260">
+                        <button
+                            style="background-color: black; border-color: black; border-radius: 12px; color: white; padding:13px 15px;">
+                            <img src="https://www.naver.com/favicon.ico" style="height:50px; height:30px; width: 30px;">
+                            &nbsp;&nbsp;Naver 바로가기
+                        </button>
+                    </a>
+                </a>
+                <!--다음-->
+                <a class="d-flex align-items-center">
+                    <a class="me-lg-3 mb-4 mb-lg-0" target="_blank" href="https://realty.daum.net/">
+                        <button
+                            style="background-color: black; border-color: black; border-radius: 12px; color: white; padding: 13px 15px;">
+                            <img src="https://www.daum.net/favicon.ico" style="height:30px; width: 30px;">
+                            &nbsp; Daum 바로가기
+                        </button>
+                    </a>
+                </a>
+                <!--구글-->
+                <a class="d-flex align-items-center">
+                    <a class="me-lg-3 mb-4 mb-lg-0" target="_blank"
+                        href="https://news.google.com/search?q=%EB%B6%80%EB%8F%99%EC%82%B0&hl=ko&gl=KR&ceid=KR%3Ako">
+                        <button
+                            style="background-color: black;  border-color: black; border-radius: 12px; color: white; padding: 13px 15px;">
+                            <img src="https://www.google.com/favicon.ico" style="height:30px; width: 30px;">
+                            &nbsp;&nbsp;Google 바로가기
+                        </button>
+                    </a>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+
+        <!-- Footer-->
+        <footer class="bg-black text-center py-5">
+            <div class="container px-5">
+                <div class="text-white-50 small">
+                    <div class="mb-2"> <br>
+                        대전광역시 유성구 대학로 99 충남대학교 공과대학 5호관<br>
+                        &copy; Website 2021. All Rights Reserved.<br>
+                        
+                        <a href="./support.html">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a href="./support.html">About</a>
+                        <span class="mx-1">&middot;</span>
+                        <a href="./support.html">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109501118-1"></script>
+
+<!-- 상단 메뉴 반응형 버튼 -->
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
+<!-- 페이지 상단으로 이동하는 버튼 -->
+<a id="top-button" href="#">
+    <i class="bi bi-caret-up-fill fs-1"></i>
+</a>
+<br />
+
+
+</html>

@@ -10,6 +10,24 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+ /* 폰트 적용 */
+ .np{font-family: 'Nanum Pen Script', cursive;}
+ .jg{font-family: 'Jeju Gothic', sans-serif;}
+ .jm{font-family: 'Jeju Myeongjo', serif;}
+ .kb{font-family: 'KoPub Batang', serif;}
+ .nb{font-family: 'Nanum Brush Script', cursive;}
+ .ns{font-family: 'Noto Sans KR', sans-serif;}
+ .hn{font-family: 'Hanna', sans-serif;}
+ .ng{font-family: 'Nanum Gothic', sans-serif;}
+ .nm{font-family: 'Nanum Myeongjo', serif;}
+ .jh{font-family: 'Jeju Hallasan', cursive;}
+ .ngc{font-family: 'Nanum Gothic Coding', monospace;}
+
+#logo-name {
+  font-family: Kanit;
+}
+
 :root {
   --bs-blue: #2937f0;
   --bs-indigo: #6610f2;
@@ -11637,6 +11655,7 @@ footer a:hover, footer a:active, footer a:focus {
   }
 }
 
+/* index.html css 테마 적용 */
 .features-img-img {
   /*
   width: 90%;
@@ -11661,15 +11680,16 @@ footer a:hover, footer a:active, footer a:focus {
   height: 100%;
   padding: 15rem 0;
   content: "";
-  background-image: url("https://source.unsplash.com/xo3fdXgTJP8/2900x1500");
+  background-image: url("https://source.unsplash.com/xo3fdXgTJP8/2000x1000");
   transform: scaleX(-1);
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
+/* support.html css 테마 적용 */
 .about {
   width: 100%;
   height: 100%;
@@ -11682,8 +11702,8 @@ footer a:hover, footer a:active, footer a:focus {
   height: 100%;
   padding: 15rem 0;
   content: "";
-  background-image: url("https://source.unsplash.com/trG8989WjFA/1500x700");
-  transform: scaleX(-1);
+  background-image: url("/assets/img/contact.png");
+  
   position: absolute;
   top: 0;
   left: 0;
@@ -11771,4 +11791,68 @@ section.cnu-bg:before {
 .main_others ul li a:hover img{
 	transform:scale(1.05);
 	opacity:0.3;
+}
+
+/* 페이지 상단으로 이동하는 버튼(모든 페이지 적용)*/
+#top-button {
+  display:scroll;
+  position:fixed;
+  bottom:70px;
+  right:70px;
+  z-index: 1;
+}
+
+/* 수평 스크롤 제거 */
+body {
+  overflow-x: hidden;
+}
+
+/* news.html */
+.news-btn {
+
+}
+
+section.news-bg {
+  position: relative;
+  padding: 15rem 0;
+  background-image: url("https://source.unsplash.com/iFSvn82XfGo/2500x1500");
+  background-position: center;
+  background-size: cover;
+}
+section.news-bg .news-bg-content {
+  position: relative;
+  z-index: 1;
+}
+section.news-bg:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/*support.html*/
+.support-title {
+  position: relative;
+  padding: 0 0 20px 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: #014099;
+}
+
+.support-location{
+  text-align: center;
+  border: 1px solid #e7e7e7;
+}
+
+.support-map-des{
+  padding: 20px;
+  border: 1px solid #e7e7e7;
+  font-size: 16px;
+}
+
+.support-map-des div {
+  padding: 15 10px;
 }
